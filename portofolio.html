@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arya | Portofolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F6FA;--surface:#FFFFFF;--ink:#101B2E;--muted:#4D5B73;--line:#C9D3E2;
+  --accent:#2447F5;--on-accent:#FFFFFF;--mark:#FFD23F;--grid:rgba(36,71,245,.07);
+  color-scheme:light;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1626;--surface:#16213A;--ink:#EAF0FB;--muted:#9FB0CC;--line:#2B3A59;
+    --accent:#7C97FF;--on-accent:#0E1626;--mark:#FFD23F;--grid:rgba(124,151,255,.08);color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1626;--surface:#16213A;--ink:#EAF0FB;--muted:#9FB0CC;--line:#2B3A59;
+  --accent:#7C97FF;--on-accent:#0E1626;--mark:#FFD23F;--grid:rgba(124,151,255,.08);color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 "DM Sans",system-ui,sans-serif;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:32px 32px}
+h1,h2,h3{font-family:"Bricolage Grotesque","DM Sans",sans-serif;line-height:1;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.logo{font:800 1.19rem "Bricolage Grotesque",sans-serif;text-decoration:none}
+nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+nav a{text-decoration:none;font-weight:500;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+#theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:6px 12px;font:inherit;font-size:.9rem;cursor:pointer}
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center;padding:72px 0 88px}
+.hero h1{font-size:clamp(3.2rem,9vw,4.7rem);font-weight:800;letter-spacing:-.03em}
+.hero p.lead{font-size:1.25rem;max-width:34ch;color:var(--muted);margin:24px 0 32px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:10px;font-weight:500;text-decoration:none;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.ghost{color:var(--accent)}
+.btn:hover{transform:translateY(-2px)}
+.phone{justify-self:center;width:230px;aspect-ratio:9/17;border:3px solid var(--ink);border-radius:30px;background:var(--surface);padding:16px 14px;display:flex;flex-direction:column;gap:10px;position:relative;box-shadow:10px 10px 0 var(--mark)}
+.phone .bar{height:10px;width:40%;background:var(--line);border-radius:6px;margin:0 auto 4px}
+.phone .banner{height:70px;border-radius:10px;background:var(--accent);opacity:.9}
+.phone .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.phone .box{height:64px;border:2px dashed var(--line);border-radius:10px}
+.phone .line{height:8px;border-radius:5px;background:var(--line)}
+.phone .line.s{width:60%}
+.phone .cta{margin-top:auto;height:34px;border-radius:10px;background:var(--ink)}
+section{padding:72px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:28px;letter-spacing:-.02em}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.about p{margin:0 0 16px;max-width:60ch}
+.facts{list-style:none;margin:0;padding:0;border-left:3px solid var(--mark);padding-left:20px}
+.facts li{margin-bottom:14px}
+.facts b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:1.1rem}
+.projects{display:grid;gap:20px}
+.proj{display:grid;grid-template-columns:200px 1fr;gap:28px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+.proj .thumb{border-radius:10px;background:var(--accent);min-height:140px;display:grid;place-items:center;color:var(--on-accent);font:800 1.6rem "Bricolage Grotesque",sans-serif}
+.proj:nth-child(2) .thumb{background:var(--mark);color:#101B2E}
+.proj:nth-child(3) .thumb{background:var(--ink);color:var(--bg)}
+.proj h3{font-size:1.6rem;margin-bottom:8px}
+.proj p{margin:0 0 14px;color:var(--muted);max-width:56ch}
+.tags{display:flex;gap:8px;flex-wrap:wrap;padding:0;margin:0;list-style:none}
+.tags li{border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:.88rem}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skills div{border-top:3px solid var(--accent);padding-top:14px}
+.skills h3{font-size:1.25rem;margin-bottom:8px}
+.skills p{margin:0;color:var(--muted)}
+.contact p{max-width:46ch;color:var(--muted);margin:0 0 24px}
+footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+@media (max-width:760px){
+  .hero,.about,.skills{grid-template-columns:1fr}
+  .hero{padding:48px 0 64px}
+  .proj{grid-template-columns:1fr}
+  nav a.hide{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+.btn{transition:transform .15s}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#atas">Arya Hidayat</a>
+    <nav aria-label="Navigasi utama">
+      <a class="hide" href="#tentang">Tentang</a>
+      <a href="#proyek">Proyek</a>
+      <a class="hide" href="#keahlian">Keahlian</a>
+      <a href="#kontak">Kontak</a>
+      <button id="theme" type="button" aria-label="Ganti tema">Tema</button>
+    </nav>
+  </div>
+</header>
+
+<main id="atas" class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Arya Hidayat Fattahul Alim</h1>
+      <p class="lead">Saya merupakan Mahasiswa Teknik Informatika dari Kampus Universitas Muhammadiyah Tangerang.</p>
+      <div class="btns">
+        <a class="btn primary" href="#proyek">Lihat proyek</a>
+        <a class="btn ghost" href="#kontak">Hubungi saya</a>
+      </div>
+    </div>
+    <div class="phone" aria-hidden="true">
+      <div class="bar"></div>
+      <div class="banner"></div>
+      <div class="row"><div class="box"></div><div class="box"></div></div>
+      <div class="row"><div class="box"></div><div class="box"></div></div>
+      <div class="line"></div><div class="line s"></div>
+      <div class="cta"></div>
+    </div>
+  </div>
+
+  <section id="tentang">
+    <h2>Tentang saya</h2>
+    <div class="about">
+      <div>
+        <p>Saya mahasiswa Teknik Informatika di Universitas Muhammadiyah Tangerang. Saya tertarik pada Network Engineering dan pengembangan Infrastructure Jaringan Telekomunikasi.</p>
+        <p>Saya mulai dari sketsa Topologi Jaringan, lalu mengerjakannya di Cisco Packet Tracer dan mengetes ping  koneksi nya apakah berjalan dengann sempurna sampai siap dikembangkan menjadi infrastruktur jaringan yang stabil dan kompleks.</p>
+      </div>
+      <ul class="facts">
+        <li><b>Pendidikan</b>S1 Teknik Informatika, Universitas Muhammadiyah Tangerang</li>
+        <li><b>Fokus</b>Network Engineering</li>
+        <li><b>Lokasi</b>Tangerang, Banten</li>
+      </ul>
+    </div>
+  </section>
+  <section id="proyek">
+    <h2>Proyek</h2>
+    <div class="projects">
+      <article class="proj">
+        <div class="thumb">Deltaa</div>
+        <div>
+          <h3>Deltaa Network</h3>
+          <p>Rancangan infrastruktur jaringan untuk tugas mata kuliah Komunikasi Data, yang mencakup dari merancang topologi jaringan, mengatur (DHCP, Firewall, IP Adress) menelusuri semuanya sampai komputer bisa saling terhubung satu sama lain.</p>
+          <ul class="tags"><li>UI/UX</li><li>Mobile</li><li>Prototipe</li></ul>
+        </div>
+      </article>
+      <article class="proj">
+        <div class="thumb">Proyek 2</div>
+        <div>
+          <h3>Delta Infrastructure</h3>
+          <p>Rancangan infrastruktur jaringan untuk tugas mata kuliah Jaringan Komputer, yang mencakup dari merancang topologi jaringan, mengatur (DHCP, Firewall, IP Adress) menelusuri semuanya sampai komputer bisa saling terhubung satu sama lain.</p>
+          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+        </div>
+      </article>
+      <article class="proj">
+        <div class="thumb">Proyek 3</div>
+        <div>
+          <h3>Delta Network Design</h3>
+          <p>Tambahkan tautan demo atau repositori GitHub di sini.</p>
+          <ul class="tags"><li>Teknologi</li><li>Alat</li></ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="keahlian">
+    <h2>Keahlian</h2>
+    <div class="skills">
+      <div><h3>Desain</h3><p>Figma, wireframe, prototipe, desain sistem sederhana</p></div>
+      <div><h3>Pemrograman</h3><p>HTML, CSS, JavaScript, Python</p></div>
+      <div><h3>Dokumen</h3><p>Penulisan akademik dan dokumen profesional berbahasa Indonesia</p></div>
+    </div>
+  </section>
+
+  <section id="kontak" class="contact">
+    <h2>Kontak</h2>
+    <p>Terbuka untuk magang, proyek freelance, dan kolaborasi. Kirim pesan dan saya balas secepatnya.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:aryahidayatfattahulalim@gmail.com">aryahidayatfattahulalim@gmail.com</a>
+      <a class="btn ghost" href="https://wa.me/62881081908123" rel="noopener" target="_blank">WhatsApp</a>
+      <a class="btn ghost" href="https://github.com/aryahidayat" rel="noopener" target="_blank">GitHub</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/aryahidayat" rel="noopener" target="_blank">LinkedIn</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="yr">2026</span> Design By Arya Hidayat.</div>
+</footer>
+
+<script>
+(function(){
+  try{document.getElementById('yr').textContent=new Date().getFullYear()}catch(e){}
+  var root=document.documentElement,btn=document.getElementById('theme');
+  btn.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark'||
+      (!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    root.setAttribute('data-theme',dark?'light':'dark');
+  });
+})();
+</script>
+</body>
+</html>
